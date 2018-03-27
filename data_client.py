@@ -29,7 +29,6 @@ if rc:
         print "Client:-- Sending command: go..."
         client.sendMessage("go")
         response = clientHandler.readResponse()
-        print(response)
         time.sleep(2)
         i += 1
     print "Done"
