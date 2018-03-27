@@ -1,36 +1,13 @@
-# DataClient2.py
-
-from tcpcom import TCPClient, ClientHandler
-import time
+import socket
 
 
-IP_ADDRESS = "192.168.0.105"
-IP_PORT = 80
+HOST = '192.168.0.105'
+PORT = 80
+BUFFER_SZ = 4096
 
-def onStateChanged(state, msg):
-    global isConnected
-    if state == "CONNECTING":
-       print "Client:-- Waiting for connection..."
-    elif state == "CONNECTED":
-       print "Client:-- Connection established."
-    elif state == "DISCONNECTED":
-       print "Client:-- Connection lost."
-       isConnected = False
-    elif state == "MESSAGE":
-       print "Client:-- Received data:", msg
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    skt.connect((HOST, PORT))
+    skt.sendall("GET / HTTP/1.1\r\n\r\n")
+    data = skt.recv(BUFFER_SZ)
 
-client = TCPClient(IP_ADDRESS, IP_PORT, stateChanged = onStateChanged)
-rc = client.connect()
-if rc:
-    isConnected = True
-    i = 0
-    while i < 5: # isConnected:
-        print "Client:-- Sending command: GET..."
-        response = client.sendMessage("GET")
-        print response
-        time.sleep(2)
-        i += 1
-    print "Done"
-    client.disconnect()
-else:
-    print "Client:-- Connection failed"
+print('Received', repr(data))
