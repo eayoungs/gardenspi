@@ -4,7 +4,7 @@ from tcpcom import TCPClient
 import time
 
 IP_ADDRESS = "192.168.0.105"
-IP_PORT = 22000
+IP_PORT = 80
 
 def onStateChanged(state, msg):
     global isConnected
