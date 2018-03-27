@@ -21,14 +21,12 @@ def onStateChanged(state, msg):
 
 client = TCPClient(IP_ADDRESS, IP_PORT, stateChanged = onStateChanged)
 rc = client.connect()
-clientHandler = ClientHandler(client)
 if rc:
     isConnected = True
     i = 0
     while i < 5: # isConnected:
         print "Client:-- Sending command: go..."
-        client.sendMessage("go")
-        response = clientHandler.readResponse()
+        client.sendMessage("GET")
         time.sleep(2)
         i += 1
     print "Done"
