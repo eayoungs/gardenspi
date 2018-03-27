@@ -3,6 +3,7 @@
 from tcpcom import TCPClient, ClientHandler
 import time
 
+
 IP_ADDRESS = "192.168.0.105"
 IP_PORT = 80
 
@@ -27,7 +28,8 @@ if rc:
     while i < 5: # isConnected:
         print "Client:-- Sending command: go..."
         client.sendMessage("go")
-        print clientHandler.readResponse()
+        response = clientHandler.readResponse()
+        print(response)
         time.sleep(2)
         i += 1
     print "Done"
