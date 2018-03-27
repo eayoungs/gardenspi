@@ -1,6 +1,6 @@
 # DataClient2.py
 
-from tcpcom import TCPClient
+from tcpcom import TCPClient, ClientHandler
 import time
 
 IP_ADDRESS = "192.168.0.105"
