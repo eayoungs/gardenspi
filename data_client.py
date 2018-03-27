@@ -20,7 +20,7 @@ def onStateChanged(state, msg):
 
 client = TCPClient(IP_ADDRESS, IP_PORT, stateChanged = onStateChanged)
 rc = client.connect()
-clientHandler = TCPClient()
+clientHandler = ClientHandler()
 if rc:
     isConnected = True
     i = 0
