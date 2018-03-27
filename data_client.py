@@ -27,6 +27,7 @@ if rc:
     while i < 5: # isConnected:
         print "Client:-- Sending command: go..."
         client.sendMessage("go")
+        print clientHandler.readResponse()
         time.sleep(2)
         i += 1
     print "Done"
