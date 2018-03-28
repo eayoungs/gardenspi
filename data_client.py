@@ -1,7 +1,7 @@
 import socket
 
 
-HOST = '192.168.0.105'
+HOST = '192.168.0.111'
 PORT = 80
 BUFFER_SZ = 4096
 
